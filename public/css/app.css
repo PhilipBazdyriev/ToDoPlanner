@@ -1,0 +1,36 @@
+body {
+    background-color: #f5f5f0;
+}
+
+.base-padding {
+    padding: 50px 0;
+}
+
+.task-list-container {
+
+}
+.task-list-container .task {
+    border-radius: 3px;
+}
+.task-list-container .task-status-pending {
+    color: #999999 !important;
+    background-color: #99999911;
+}
+.task-list-container .task-status-done {
+    color: #2ecc40 !important;;
+    background-color: #2ecc4011;
+}
+.task-list-container .task-status-failed {
+    color: #ff695e !important;;
+    background-color: #ff695e11;
+}
+
+.ui.divided.list>.item {
+    border-top: 1px dashed rgba(34,36,38,.1);
+}
+.ui.relaxed.list:not(.horizontal)>.item:not(:last-child) {
+    padding-bottom: 1em;
+}
+.ui.relaxed.list:not(.horizontal)>.item:not(:first-child) {
+    padding-top: 1em;
+}

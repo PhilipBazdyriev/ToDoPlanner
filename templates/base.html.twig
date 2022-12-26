@@ -2,9 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="favicon.png" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+        {#
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -12,8 +16,27 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        #}
+
+        <link rel="stylesheet" type="text/css" href="/libs/semantic-ui/semantic.min.css">
+        <script
+                src="https://code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                crossorigin="anonymous"></script>
+        <script src="/libs/semantic-ui/semantic.min.js"></script>
+
+        <script src="https://kit.fontawesome.com/ac5a28281a.js" crossorigin="anonymous"></script>
+
+        <link href="/libs/semantic-ui-calendar/calendar.min.css" rel="stylesheet" type="text/css" />
+        <script src="/libs/semantic-ui-calendar/calendar.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/app.css">
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        <div class="ui container base-padding">
+            {% block body %}{% endblock %}
+        </div>
+
     </body>
 </html>

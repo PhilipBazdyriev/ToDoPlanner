@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block body %}
+
+    <div class="ui three column doubling stackable grid container">
+
+        {% for task_group_id,task_group in task_groups %}
+
+            <div class="column">
+                <div class="ui segment task-list-container">
+
+                    <h3 class="ui header">
+                        {{ task_group.title }}
+                    </h3>
+
+                    <div class="ui active tiny indicating progress" data-value="{{ task_group.task_done_count }}" data-total="{{ task_group.task_list|length }}">
+                        <div class="bar">
+                        </div>
+                    </div>
+
+                    <div class="ui middle aligned relaxed selection divided list">
+                        {% for task in task_group.task_list %}
+                            <div class="item task task-status-{{ task.status }}">
+                                {% if task.status == 'pending' %}
+                                    <i class="question icon big"></i>
+                                {% elseif task.status == 'done' %}
+                                    <i class="check icon big"></i>
+                                {% elseif task.status == 'failed' %}
+                                    <i class="close icon big"></i>
+                                {% endif %}
+                                <div class="content">
+                                    <div class="header">{{ task.title }}</div>
+                                    <div class="description">{{ task.description }}</div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+
+                    <div>
+                        <button class="fluid ui button new-task-button"><i class="plus icon"></i>Add task</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% include 'site/modals/task.html.twig' %}
+    {% include 'site/modals/task-edit.html.twig' %}
+
+    <script>
+        $(document).ready(() => {
+            $('.task').click(() => {
+                $('#modal-task').modal('show')
+            })
+            $('.new-task-button').click(() => {
+                $('#modal-task-edit').modal('show')
+            })
+            $('.close-modal').click(() => {
+                $('.modal').modal('hide')
+            })
+            $('.progress').progress()
+            $('select.dropdown').dropdown()
+
+        })
+    </script>
+
+{% endblock %}
