@@ -1,0 +1,7 @@
+group:
+  type:
+    today: Today
+    this_week: This Week
+    this_month: This Month
+ui:
+  add_task: Add Task

@@ -1,0 +1,17 @@
+<div class="frontend-template" id="tpl-tasks-group">
+    <div class="column" id="group-[id]">
+        <div class="ui segment task-list-container">
+            <h3 class="ui header">[title]</h3>
+            <div class="ui active tiny indicating progress" data-value="[progress_value]" data-total="[progress_total]">
+                <div class="bar">
+                </div>
+            </div>
+            <div class="ui middle aligned relaxed selection divided list">
+
+            </div>
+            <div>
+                <button class="fluid ui button new-task-button" data-group-id="[id]"><i class="plus icon"></i>{% trans %}ui.add_task{% endtrans %}</button>
+            </div>
+        </div>
+    </div>
+</div>
