@@ -1,4 +1,6 @@
 /.idea
+/var/todoplanner.db
+/var/todoplanner_test.db
 
 # Cache and logs (Symfony2)
 /app/cache/*
